@@ -10,6 +10,9 @@ This project is a REST API built using FastAPI for classifying images using a pr
 - Python 3.8+
 - `pip` (Python package manager)
 
+## URL for the wandb report
+https://api.wandb.ai/links/rudra-corteva-corteva-agriscience/7egoec2i
+
 ## Setup Instructions
 
 ### 1. Clone the Repository
@@ -17,5 +20,3 @@ This project is a REST API built using FastAPI for classifying images using a pr
 git clone https://github.com/yourusername/yourrepository.git
 cd yourrepository
 
-**## URL for the wandb report**
-https://api.wandb.ai/links/rudra-corteva-corteva-agriscience/7egoec2i
