@@ -1,0 +1,35 @@
+name: Deploy FastAPI App
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Run tests
+      run: pytest
+    - name: Build Docker image
+      run: docker build -t mnist-fastapi-app .
+    - name: Push Docker image to Docker Hub
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      run: |
+        echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+        docker tag mnist-fastapi-app $DOCKER_USERNAME/mnist-fastapi-app
+        docker push $DOCKER_USERNAME/mnist-fastapi-app
+    - name: Deploy to Heroku
+      run: |
+        heroku container:push web --app ${{ secrets.HEROKU_APP_NAME }}
+        heroku container:release web --app ${{ secrets.HEROKU_APP_NAME }}
