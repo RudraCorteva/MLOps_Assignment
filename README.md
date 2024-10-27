@@ -16,3 +16,6 @@ This project is a REST API built using FastAPI for classifying images using a pr
 ```bash
 git clone https://github.com/yourusername/yourrepository.git
 cd yourrepository
+
+**## URL for the wandb report**
+https://api.wandb.ai/links/rudra-corteva-corteva-agriscience/7egoec2i
