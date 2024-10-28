@@ -33,5 +33,5 @@ jobs:
       env:
         RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}  # You need to set this secret in your GitHub repository
       run: |
-        curl -X POST https://api.render.com/v1/services/<YOUR_SERVICE_ID>/restart \
+        curl -X POST https://api.render.com/v1/services/srv-csfjjgtds78s738saci0/restart \
         -H "Authorization: Bearer $RENDER_API_KEY"
