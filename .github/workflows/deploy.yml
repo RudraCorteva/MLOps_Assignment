@@ -8,9 +8,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3  # Update to checkout@v3
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4  # Update to setup-python@v4
       with:
         python-version: '3.9'
     - name: Install dependencies
@@ -30,8 +30,8 @@ jobs:
         docker tag mnist-fastapi-app $DOCKER_USERNAME/mnist-fastapi-app
         docker push $DOCKER_USERNAME/mnist-fastapi-app
     - name: Deploy to Render
-      env:
-        RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}  # You need to set this secret in your GitHub repository
       run: |
-        curl -X POST https://api.render.com/v1/services/srv-csfjjgtds78s738saci0/restart \
-        -H "Authorization: Bearer $RENDER_API_KEY"
+        curl -X POST https://api.render.com/v1/services/srv-csfjjgtds78s738saci0/deploys \
+        -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+        -H "Content-Type: application/json" \
+        -d '{"force": true}'  # You can adjust the body as needed.
