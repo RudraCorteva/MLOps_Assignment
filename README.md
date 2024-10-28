@@ -17,6 +17,6 @@ This project is a REST API built using FastAPI for classifying images using a pr
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/yourusername/yourrepository](https://github.com/RudraCorteva/MLOps_Assignment).git
+git clone https://github.com/RudraCorteva/MLOps_Assignment.git
 cd MLOps_Assignment
 
