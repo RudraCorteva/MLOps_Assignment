@@ -27,7 +27,7 @@ class LogisticRegression(nn.Module):
 
 # Load your model
 model = LogisticRegression(input_dim=28*28, output_dim=10)
-model.load_state_dict(torch.load('model.pth'))
+model.load_state_dict(torch.load('model.pth', weights_only=True))
 model.eval()
 
 app = FastAPI()
