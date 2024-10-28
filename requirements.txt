@@ -3,3 +3,4 @@ torch
 uvicorn
 pillow
 torchvision
+python-multipart
