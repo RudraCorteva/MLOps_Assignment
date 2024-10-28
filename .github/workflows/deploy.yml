@@ -18,7 +18,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Run tests
-      run: pytest
+      run: pytest  # Ensure you have tests; if not, you can comment or remove this step.
     - name: Build Docker image
       run: docker build -t mnist-fastapi-app .
     - name: Push Docker image to Docker Hub
@@ -29,7 +29,9 @@ jobs:
         echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
         docker tag mnist-fastapi-app $DOCKER_USERNAME/mnist-fastapi-app
         docker push $DOCKER_USERNAME/mnist-fastapi-app
-    - name: Deploy to Heroku
+    - name: Deploy to Render
+      env:
+        RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}  # You need to set this secret in your GitHub repository
       run: |
-        heroku container:push web --app ${{ secrets.HEROKU_APP_NAME }}
-        heroku container:release web --app ${{ secrets.HEROKU_APP_NAME }}
+        curl -X POST https://api.render.com/v1/services/<YOUR_SERVICE_ID>/restart \
+        -H "Authorization: Bearer $RENDER_API_KEY"
