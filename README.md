@@ -11,7 +11,7 @@ This project is a REST API built using FastAPI for classifying images using a pr
 - `pip` (Python package manager)
 
 ## URL for the wandb report
-https://api.wandb.ai/links/rudra-corteva-corteva-agriscience/7egoec2i
+[https://api.wandb.ai/links/rudra-corteva-corteva-agriscience/7egoec2i](https://api.wandb.ai/links/rudra-corteva-corteva-agriscience/nwi1e6ud)
 
 ## Setup Instructions
 
