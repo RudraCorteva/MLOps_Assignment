@@ -34,8 +34,45 @@ https://mlops-assignment-l6t3.onrender.com/
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com/RudraCorteva/MLOps_Assignment.git
-cd MLOps_Assignment```
-
+cd MLOps_Assignment
+```
 ### 2. Create a virtual environment and activate it:
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+### 3.Install the required dependencies:
+```bash
+pip install -r requirements.txt
+```
+## Running the API Locally
+1. Make sure the model.pth file (pre-trained PyTorch model) is in the project directory.
+2. Start the FastAPI server:
+```bash
+uvicorn app:app --host 127.0.0.1 --port 8000
+```
+3. Open your web browser and navigate to:
+```bash
+http://127.0.0.1:8000/
+```
+## Building and Running the Docker Container
 
+### Prerequisites
+Docker installed on your machine
+### Building the Docker Image
+1. Build the Docker image using the provided Dockerfile:
+```bash
+docker build -t logistic-regression-api .
+```
+2. Run the Docker container:
+```bash
+docker run -d -p 8000:8000 logistic-regression-api
+
+```
+3. Access the API in your browser at:
+```bash
+http://localhost:8000/
+```
+
+   
 
