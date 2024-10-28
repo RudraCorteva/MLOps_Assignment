@@ -13,6 +13,9 @@ This project is a REST API built using FastAPI for classifying images using a pr
 ## URL for the wandb report
 [https://api.wandb.ai/links/rudra-corteva-corteva-agriscience/7egoec2i](https://api.wandb.ai/links/rudra-corteva-corteva-agriscience/nwi1e6ud)
 
+## URL for the Deployed Project
+https://mlops-assignment-l6t3.onrender.com/
+
 ## Setup Instructions
 
 ### 1. Clone the Repository
