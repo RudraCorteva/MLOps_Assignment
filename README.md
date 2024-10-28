@@ -62,11 +62,11 @@ Docker installed on your machine
 ### Building the Docker Image
 1. Build the Docker image using the provided Dockerfile:
 ```bash
-docker build -t logistic-regression-api .
+docker build -t Dockerfile .
 ```
 2. Run the Docker container:
 ```bash
-docker run -d -p 8000:8000 logistic-regression-api
+docker run -d -p 8000:8000 Dockerfile
 
 ```
 3. Access the API in your browser at:
